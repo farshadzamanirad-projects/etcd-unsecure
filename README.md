@@ -87,9 +87,10 @@ ETCDCTL_API=3 etcdctl --endpoints=http://127.0.0.1:2379 member list
 #### Create and verify some key-value pair
 ```
 ETCDCTL_API=3 etcdctl put name1 Arash
-ETCDCTL_API=3 etcdctl put name2 Rostam
-ETCDCTL_API=3 etcdctl put name3 Kourosh
-ETCDCTL_API=3 etcdctl put name4 Dariush
+ETCDCTL_API=3 etcdctl put name2 Giti
+ETCDCTL_API=3 etcdctl put name3 Rostam
+ETCDCTL_API=3 etcdctl put name4 Shirin
+ETCDCTL_API=3 etcdctl put name5 Kourosh
 ```
 now we can check it like below :
 ```
