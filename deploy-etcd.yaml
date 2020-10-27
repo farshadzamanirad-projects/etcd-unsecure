@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  roles:
+    - infra
+
+- hosts: all
+  gather_facts: yes
+  roles:
+    - prereq
+    - getetcd
+    - etcdinstallation

@@ -1,0 +1,19 @@
+[Unit]
+Description=etcd
+
+[Service]
+Type=notify
+ExecStart=/usr/local/bin/etcd \
+  --name {{ sethostnameto }} \
+  --initial-advertise-peer-urls http://{{ ansible_host }}:2380 \
+  --listen-peer-urls http://{{ ansible_host }}:2380 \
+  --advertise-client-urls http://{{ ansible_host }}:2379 \
+  --listen-client-urls http://{{ ansible_host }}:2379,http://127.0.0.1:2379 \
+  --initial-cluster-token etcd-cluster-1 \
+  --initial-cluster {{ hostvars['etcd1'].sethostnameto }}=http://{{ hostvars['etcd1'].ansible_host }}:2380,{{ hostvars['etcd2'].sethostnameto }}=http://{{ hostvars['etcd2'].ansible_host }}:2380,{{ hostvars['etcd3'].sethostnameto }}=http://{{ hostvars['etcd3'].ansible_host }}:2380 \
+  --initial-cluster-state new
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
