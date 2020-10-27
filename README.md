@@ -39,7 +39,7 @@ First of all lets confirm what we have:
 }
 ```
 
-##### Create systemd unit file for etcd service on seach servers
+##### Create systemd unit file for etcd service on each servers
 > Set NODE_IP to the correct IP of the machine where you are running this
 ```
 {
